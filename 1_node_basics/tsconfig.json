@@ -16,6 +16,7 @@
     "skipLibCheck": true,                        /* Skip type-checking declaration files for speed */
     "forceConsistentCasingInFileNames": true,    /* Enforce exact casing in file paths */
     "sourceMap": true,                           /* Generate map files for easier debugging */
+    "types":["node"],
 
     /* Output Options */
     "outDir": "./dist",                          /* Directory where JavaScript builds are saved */
