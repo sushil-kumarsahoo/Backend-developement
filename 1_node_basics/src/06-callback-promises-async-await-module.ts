@@ -76,12 +76,12 @@ function fetchUserWithpromise(userId: number): Promise<User> {
     })
 }
 
-// fetchUserWithpromise(100).then((user) => {
-//     console.log(`Promise result`, user?.id, user?.name, user?.role);
-// }).catch((error: Error) => {
-//     console.log(`Promise error`, error.message);
+fetchUserWithpromise(1).then((user) => {
+    console.log(`Promise result`, user?.id, user?.name, user?.role);
+}).catch((error: Error) => {
+    console.log(`Promise error`, error.message);
 
-// })
+})
 
 
 //using async await
@@ -98,4 +98,4 @@ async function findUserWithAsyncAwait(userId:number):Promise<void> {
        
     }
 }
-findUserWithAsyncAwait(10)
+// findUserWithAsyncAwait(10)
