@@ -14,7 +14,8 @@
     "07":"tsx src/07-fs-module",
     "08":"tsx src/08-buffers-module",
     "09":"tsx src/09-url-module",
-    "10":"tsx src/10-event-emitters-module"
+    "10":"tsx src/10-event-emitters-module",
+    "11":"tsx src/11-streams"
 
   },
   "keywords": [],
