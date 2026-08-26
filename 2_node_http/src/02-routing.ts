@@ -5,10 +5,20 @@ const PORT = 4000;
 const server = createServer((req:IncomingMessage,res:ServerResponse)=>{
     const method = req.method ?? "GET";
     
-//https://localhost:5001/users -> req.url: /users
-//https://localhost:5001/user?id=1 -> req.url: /users?id=1
+//https://localhost:5001/users -> req.url -> /users
+//https://localhost:5001/user?id=1 -> req.url -> /users?id=1 (relative url)  localhost:5001 -> base url
 
-    const requestUrl = new URL(req.url ?? "/", `https:${req.headers.host}`)
+//http://localhost:3000/users?id=10
+//                    └──────┘
+//                    pathname
+
+//We do this because req.url is just a string, while new URL() gives us a structured object that is much easier to work with.A string doesn't automatically give you useful properties such as:
+// req.url.pathname
+// req.url.searchParams
+
+//new URL(...)  -> creates a URL object. ->new URL(relativeUrl, baseUrl)
+
+    const requestUrl = new URL(req.url ?? "/", `https://${req.headers.host}`)
     const pathanme = requestUrl.pathname
     res.setHeader("content-type","text/plain")
 
