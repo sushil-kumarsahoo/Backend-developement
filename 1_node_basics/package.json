@@ -12,7 +12,8 @@
     "05":"tsx src/05-timers-module",
     "06":"tsx src/06-callback-promises-async-await-module",
     "07":"tsx src/07-fs-module",
-    "08":"tsx src/08-buffers-module"
+    "08":"tsx src/08-buffers-module",
+    "09":"tsx src/09-url-module"
 
   },
   "keywords": [],
