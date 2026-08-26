@@ -16,12 +16,39 @@ import { pipeline } from "node:stream/promises";
 //transform stream - read the data, change it and pass that forward
 
 
+//The stream internally takes each item and puts it into its internal buffer.
+//A stream is an object that participates in a data-flow system.
+//For a Readable stream, Node internally reads/produces data and makes it available to whoever is consuming the stream.
+
+
+//chunk arrives
+//     ↓
+// transform()
+//      ↓
+// callback(null, "HELLO")
+//      ↓
+// Node stream machinery
+//      ↓
+// next stream
+
+
 const readableStream = Readable.from([
     "hello",
     "from",
     "node.js",
     "streams"
 ])
+
+//Transform is a class provided by Node.js.  
+//new is the JavaScript new operator.It creates an object (instance) from the Transform class.
+//receive data → process data → produce data
+
+//The callback has two jobs here:
+//1. Tell Node that processing is finished.
+//2. Give Node the transformed chunk (when there is no error).
+
+//Why is the callback needed?
+// Because the transform() method itself doesn't return the transformed chunk to the pipeline.
 
 const uppercaseTransform = new Transform({
     transform(chunk, encoding, callback) {
@@ -37,6 +64,8 @@ const writableStream = new Writable({
         callback()
     }
 })
+
+//pipeline() returns a Promise.
 
 async function main(): Promise<void> {
     try {
