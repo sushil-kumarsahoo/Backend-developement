@@ -1,0 +1,28 @@
+
+{
+  "compilerOptions": {
+    /* Target & Environment */
+    "target": "ES2022",                          /* Output modern JavaScript */
+    "module": "NodeNext",                        /* Standard module system for Node/modern tools */
+    "moduleResolution": "NodeNext",              /* How modules are discovered */
+    
+    /* Strictness Rules */
+    "strict": true,                              /* Enables all strict type-checking options */
+    "noImplicitAny": true,                       /* Error on expressions with implied 'any' type */
+    "strictNullChecks": true,                    /* Ensures strict null handling */
+    "noUncheckedIndexedAccess": true,            /* Improves safety for array/object lookups */
+
+    /* Interop & Optimization */
+    "esModuleInterop": true,                     /* support CommonJS and ES modules */
+    "skipLibCheck": true,                        /* Skip type-checking declaration files for speed */
+    "forceConsistentCasingInFileNames": true,    /* Enforce exact casing in file paths */
+    "sourceMap": true,                           /* Generate map files for easier debugging */
+    "types":["node"],
+
+    /* Output Options */
+    "outDir": "./dist",                          /* Directory where JavaScript builds are saved */
+    "rootDir": "./src"                           /* Source code folder location */
+  },
+  "include": ["src/**/*"],                       /* Files to look at */
+  "exclude": ["node_modules", "**/*.spec.ts","dist"]    /* Files to ignore */
+}
