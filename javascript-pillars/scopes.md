@@ -149,5 +149,64 @@ to stop autoglobals use "use strict"; in your code
 
 # hoisting
 hoisting is a consequence of the scoping mechansim that JS executes.
+Because of the fact that JS executed your code in 2 phases, alot variables are already known during the phase 1, and then they are accessed in phase 2.So it looks like to a lot of people JS knows the about few variables before their declaration. And indeed it is true, because during phase 1 all the formal declarations are read , so JS knows about the variables before execution phase. And this mechanism of knowing variable before there declaration is termed as hoisting. 
 
+# let
+Both let and const work in a similar way when talk about the scope perspective. Whenever we declare any variable with let then the variable will get the scope of the nearest block.if the nearest block is a for loop block then variable gets scope of the for loop,if the nearest block is an else block than variable gets the block scope of else  or if the nearest block is a function block then variable gets a block scope inside function
+
+What is the meaning of block scope inside function? How is it
+different from var's function scope?
+
+Whemn we say function scope then it means that no matter where we declare the variable in the function its available throughout the function.
+
+But thats not the case with block scope inside a function. In a block scope variable are only accessible after they are declared, we cannot access them before their declaration.
+
+the region before the declaration of block scoped variable is called as temporal deadzone
+
+function fun(){
+    console.log("start")
+    console.log(x); // refrence error cant acces x before initialiozation
+    let x = 10;
+    console.log(x);
+}
+fun();
+
+o/p: start
+    refrence error
+
+
+function fun(){
+    console.log(x);
+    const = x; // compile time error missing initializer in const declration
+    x = 6;
+    console.log(x);
+}
+}
+console.log("start");
+fun();
+
+# Let doesnt allow redeclaration of variables . it is called out in phase 1. var allows redeclaration of variable. if you want to use const then initialization is mandatory.
+
+let x = 10
+console.log(x);
+let x = 20   //redeclaration not allowed 
+console.log(x)
+
+o/p: compile time error
+
+var x = 10;
+console.log(x)
+let x = 10; // redeclaration not allowed
+console.log(x);
+
+o/p: compile time error
+
+
+
+# all the variables of a program present in stack region and all the function instructions are in text region, it is pointed by program counter , objects are stored in heap region
+refer os docs for more clear ans
+
+in phase 1 we read the whole function(compilation & scope resolution) so we know about all the instructions of a function if we call function before declration it works but in variable it is undefined
+
+scope resolution only happend if there is formal declaration
 
